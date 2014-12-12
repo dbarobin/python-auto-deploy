@@ -17,8 +17,8 @@ if [ $? -eq 0 ];then
 	cd $script_path && ./auto_deploy_app_remote.py -m
 fi
 
+# Shutdown the tomcat.
 if [ $? -eq 0 ];then
-	# Shutdown the tomcat.
 	cd $script_path && ./auto_deploy_app_remote.py -s
 fi
 
