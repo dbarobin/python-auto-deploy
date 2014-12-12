@@ -32,7 +32,7 @@ if [ $? -eq 0 ];then
 	cd $script_path && ./auto_deploy_app_remote.py -d
 fi
 
+# Startup the tomcat.
 if [ $? -eq 0 ];then
-	# Startup the tomcat.
 	cd $script_path && ./auto_deploy_app_remote.py -t
 fi
