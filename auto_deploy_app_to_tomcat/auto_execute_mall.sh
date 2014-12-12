@@ -22,8 +22,8 @@ if [ $? -eq 0 ];then
 	cd $script_path && ./auto_deploy_app_remote.py -s
 fi
 
+# Deploy the mall admin.
 if [ $? -eq 0 ];then
-	# Deploy the mall admin.
 	cd $script_path && ./auto_deploy_app_remote.py -w
 fi
 
