@@ -4,6 +4,7 @@
 # Date: 17:35:20 12/11/2014
 # Desc: Auto deploy to remote tomcat via crontab.
 
+# Script path.
 script_path=YOUR_PATH
 
 if [ $? -eq 0 ];then
