@@ -12,8 +12,8 @@ if [ $? -eq 0 ];then
 	cd $script_path && ./auto_deploy_app_remote.py -u
 fi
 
+# Update the mall api.
 if [ $? -eq 0 ];then
-	# Update the mall api.
 	cd $script_path && ./auto_deploy_app_remote.py -m
 fi
 
