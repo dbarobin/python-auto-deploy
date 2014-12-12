@@ -7,8 +7,8 @@
 # Script path.
 script_path=YOUR_PATH
 
+# Update the mall admin.
 if [ $? -eq 0 ];then
-	# Update the mall admin.
 	cd $script_path && ./auto_deploy_app_remote.py -u
 fi
 
