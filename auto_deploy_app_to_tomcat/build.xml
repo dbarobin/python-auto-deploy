@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="package" name="PROJECT_NAME">
+	<!--
+	This script assumes:
+	1) CATALINA_HOME environment variable points to tomcat's directory
+	2) Following Folder Structure
+	./ (project root)
+	|- src/ (project.src.dir - source folder)
+	|- build/ 
+	|  |- classes/ (project.classes.dir)
+	|- WebRoot/ (project.web.dir)
+	|  |- lib/  (project.lib.dir)
+	|- PROJECT_NAME.war (project.war)
+	3) JAVA_HOME is set and point to JDK 1.6 and above
+	
+	-->
+	<property environment="env" />
+	<property name="TOMCAT_HOME" value="${env.CATALINA_HOME}" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+	<property name="project.name" value="${ant.project.name}" />
+	<property name="project.web.dir" value="WebRoot" />
+	<property name="project.src.dir" value="src" />
+	<property name="project.classes.dir" value="build/classes" />
+	<property name="project.lib.dir" value="${project.web.dir}/WEB-INF/lib" />
+	<property name="project.war" value="${project.name}.war" />
+	<property name="project.runtime.lib" value="${TOMCAT_HOME}/lib" />
+	<property name="project.deploy.location" value="${TOMCAT_HOME}/webapps" />
+
+
+	<path id="classpath.runtime">
+		<fileset dir="${project.runtime.lib}" includes="*.jar" />
+	</path>
+	<path id="classpath.lib">
+		<fileset dir="${project.lib.dir}" includes="*.jar" />
+	</path>
+	<path id="project.classpath">
+		<pathelement location="${project.classes.dir}" />
+		<path refid="classpath.runtime" />
+		<path refid="classpath.lib" />
+	</path>
+	<target name="init">
+		<mkdir dir="${project.classes.dir}" />
+		<copy includeemptydirs="false" todir="${project.classes.dir}">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="${project.classes.dir}" />
+		<delete dir="${project.war}" />
+	</target>
+
+	<target depends="init" name="build" description="Compiling all java files in ${project.src.dir}">
+		<echo message="${project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="${project.classes.dir}" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src" />
+			<classpath refid="project.classpath" />
+		</javac>
+
+	</target>
+	<target depends="build" name="package" description="Packagign all files into ${project.war}">
+		<war destfile="${project.war}" index="true" needxmlfile="fasle">
+			<classes dir="${project.classes.dir}" />
+			<lib dir="${project.lib.dir}" />
+			<fileset dir="${project.web.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</war>
+	</target>
+	<target depends="package" name="deploy" description="Copying ${project.war} to ${project.deploy.location}">
+		<copy file="${project.war}" todir="${project.deploy.location}" />
+	</target>
+
+</project>
