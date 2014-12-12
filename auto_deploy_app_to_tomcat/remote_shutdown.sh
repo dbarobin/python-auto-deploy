@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Author: Robin Wen
+# Date: 18:33:18 2014-12-12
+# Desc: Shutdown the tomcat.
+
 # Java Home.
 export JAVA_HOME=YOUR_JAVA_HOME
 # CATALINA HOME.
