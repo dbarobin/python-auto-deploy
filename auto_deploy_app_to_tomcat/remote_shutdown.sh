@@ -2,6 +2,7 @@
 
 # Java Home.
 export JAVA_HOME=YOUR_JAVA_HOME
+# CATALINA HOME.
 export CATALINA_HOME=YOUR_CATALINA_HOME
 
 YOUR_JAVA_HOME/bin/shutdown.sh
