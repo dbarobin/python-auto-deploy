@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="package" name="PROJECT_NAME">
+<project basedir="." default="package" name="YOUR_PROJECT">
 	<!--
 	This script assumes:
 	1) CATALINA_HOME environment variable points to tomcat's directory
