@@ -95,10 +95,10 @@ def usage():
     usage.append("  [-h | --help] Prints this help and usage message\n")
     usage.append("  [-c | --svn-co-shop] Checkout the shop repo via svn\n")
     usage.append("  [-u | --svn-update-shop] Update the shop repo via svn\n")
-    usage.append("  [-s | --shutdown-shop] Shutdown the shop via the nginx shutdown and startup scripts\n")
-    usage.append("  [-t | --startup-shop] Startup the shop  via the nginx shutdown and startup scripts\n")
-    usage.append("  [-r | --restart-shop] Restart the shop via the nginx shutdown and startup scripts\n")
-    usage.append("  [-d | --deploy-api] Deploy shop to nginx server.\n")
+    usage.append("  [-s | --shutdown-nginx] Shutdown the shop via the nginx shutdown and startup scripts\n")
+    usage.append("  [-t | --startup-nginx] Startup the shop  via the nginx shutdown and startup scripts\n")
+    usage.append("  [-r | --restart-nginx] Restart the shop via the nginx shutdown and startup scripts\n")
+    usage.append("  [-d | --deploy-shop] Deploy shop to nginx server.\n")
     message = string.join(usage)
     print message
 

@@ -1,4 +1,4 @@
-# Python自动化打包业务和认证平台 V2.1-Release #
+# Python自动化打包业务和认证平台 V2.2-Release #
 
 ## 1.文档摘要 ##
 
@@ -14,6 +14,9 @@
 
 2014-12-12
 > 文档版本为「2.1」，文档名为「Python自动化打包业务和认证平台 V2.1-Release」，备注为「添加部署Tomcat脚本」，By Robin。
+
+2014-12-17
+> 文档版本为「2.2」，文档名为「Python自动化打包业务和认证平台 V2.2-Release」，备注为「添加部署到Nginx服务器脚本」，By Robin。
 
 ## 3.版本信息 ##
 
@@ -35,6 +38,12 @@
 > SVN：1.6.17
 
 Tomcat服务器 XXX：
+
+> 系统版本：XXX <br/>
+> 主机名：XXX <br/>
+> IP：xxx.xxx.xxx.xxx
+
+Web服务器 XXX：
 
 > 系统版本：XXX <br/>
 > 主机名：XXX <br/>
@@ -70,9 +79,14 @@ Tomcat服务器 XXX：
 > ant：1.9.4 用于打包 <br/>
 > Jmeter：2.12 用于后期做自动化测试扩展
 
+**Web服务器安装软件：**
+
+> Nginx：1.6.2 <br/>
+> SVN：1.6.17
+
 ## 5.软件综述 ##
 
-本软件包括三个目录，其中auto_deploy_app_v2为Linux版本。auto_deploy_app_windows为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。auto_deploy_app_to_tomcat为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。
+本软件包括四个目录，其中auto_deploy_app_v2为Linux版本。auto_deploy_app_windows为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。auto_deploy_app_to_tomcat为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。auto_deploy_app_to_nginx为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。
 
 ## 6.脚本详解之Linux版本 ##
 
@@ -664,19 +678,193 @@ crontab 任务如下。
 
 **Step 5：** 早晨上班就可以看到昨晚的部署日志了，如果有问题，把日志给开发人员，再做调试。So easy, 妈妈再也不用担心我加班了！:)
 
+## 9.脚本详解之Nginx版本 ##
+
+### 8.1 软件概要 ###
+
+Nginx版本目录结构如下：
+
+	tree auto_deploy_app_to_nginx
+
+> auto_deploy_app_to_nginx <br/>
+> ├── auto_deploy_app_remote.py <br/>
+> ├── auto_deploy_app_v_final.py <br/>
+> ├── auto_execute_shop.sh <br/>
+> ├── auto_scp_nginx_log.sh <br/>
+> ├── config.conf <br/>
+> └── crontab <br/>
+> 
+> 0 directories, 6 files
+
+该脚本实现的功能如下：
+
+* 打印帮助
+* 检出Shop项目
+* 更新Shop项目
+* 部署Shop项目
+* 启动、关闭、重启Nginx服务器
+
+### 8.2 脚本帮助 ###
+
+	./auto_deploy_app_remote.py -h
+ 
+ ``` bash
+  Auto deploy application to the remote web server. Write in Python.
+ Version 1.0. By Robin Wen. Email:dbarobinwen@gmail.com
+ 
+ Usage auto_deploy_app.py [-hcustrd]
+   [-h | --help] Prints this help and usage message
+   [-c | --svn-co-shop] Checkout the shop repo via svn
+   [-u | --svn-update-shop] Update the shop repo via svn
+   [-s | --shutdown-nginx] Shutdown the shop via the nginx shutdown and startup scripts
+   [-t | --startup-nginx] Startup the shop  via the nginx shutdown and startup scripts
+   [-r | --restart-nginx] Restart the shop via the nginx shutdown and startup scripts
+   [-d | --deploy-shop] Deploy shop to nginx server.
+
+ ``` 
+
+ 在脚本名后加上「-h 或者 --help」表示打印帮助。
+同理，加上「-c | -c | --svn-co-shop」表示检出Shop项目，加上「-u | --svn-update-shop」表示更新Shop项目，加上「-s | --shutdown-nginx」表示关闭Nginx服务器，加上「-t | --startup-nginx」表示启动Nginx服务器，加上「-r | --restart-nginx」表示重启Nginx服务器，加上「-d | --deploy-shop]」表示部署Mall API项目。
+
+### 8.3 脚本概述 ###
+
+如前所述，「auto_deploy_app_remote.py」是主执行脚本，用于显示帮助以及调用相应函数。「auto_deploy_app_v_final.py」是核心执行脚本，实现所有的相关功能。核心执行脚本采用Fabric实现远程执行命令，主执行脚本再通过**fab -f 脚本名 任务名**调用相应方法。
+
+主执行脚本和核心执行脚本的方法名基本一致，主执行脚本包括如下方法：main(argv)、usage()、svn_co_shop()、svn_update_shop()、shutdown_nginx()、startup_nginx()、restart_nginx()和deploy_shop()。
+
+核心执行脚本包括如下方法：main(argv)、usage()、svn_co_shop()、svn_update_shop()、shutdown_nginx()、startup_nginx()、restart_nginx()、deploy_shop()和getConfig()。
+
+**主执行脚本：**
+
+* main(argv) 主函数
+* usage() 使用说明函数
+* svn_co_shop() 检出Shop项目
+* svn_update_shop() 更新Shop项目
+* shutdown_nginx() 关闭Nginx服务器
+* startup_nginx() 启动Nginx服务器
+* restart_nginx() 重启Nginx服务器
+* deploy_shop() 部署Shop项目
+
+**主执行脚本**
+
+主执行脚本内容如下：
+参考脚本auto_deploy_app_remote.py。
+
+**核心执行脚本**
+
+方法和主执行脚本基本一致，相同的不赘述。核心执行脚本还提供getConfig()方法，用于读取配置文件。
+
+核心执行脚本内容如下：
+参考脚本auto_deploy_app_v_final.py。
+
+`auto_execute_shop.sh`脚本实现了自动从SVN检出项目，自动部署到Nginx。
+
+参考auto_execute_shop.sh脚本。
+
+`auto_scp_nginx_log.sh`脚本实现了从Nginx服务器自动拉取日志。为了更好的查看日志，拉取了access log和error log。
+
+参考auto_scp_nginx_log.sh脚本。
+
+### 8.4 配置文件概述 ###
+
+完整配置文件内容如下：
+
+```bash
+# Remote server section.
+[remote]
+# Remote server ip.
+remote_ip=
+# Remote server port.
+remote_port=
+# Remote server username.
+remote_usr=
+# Remote server password.
+remote_pwd=
+
+# SVN path section.
+[svn_path]
+# Svn main directory of repo.
+svn_shop_dir=
+
+# Shop svn configuration section. 
+[svn]
+# Shop svn url.
+svn_url=
+# Shop svn username.
+svn_username=
+# Shop svn password.
+svn_password=
+
+# Nginx section.
+[nginx]
+# Nginx webapps path.
+nginx_path=
+
+# Other configuration section.
+[other]
+# Remote log path.
+remote_log_path=
+```
+
+接下来，我逐一进行讲解。
+
+配置文件包括以下段：remote、svn_path、svn_admin、svn_api、tomcat和other。
+
+每个段的说明如下：
+
+* remote 该段定义远程服务器登录信息。
+	* remote_ip 部署远程服务器IP。
+	* remote_port 部署远程服务器端口。
+	* remote_usr 部署远程服务器用户名。
+	* remote_pwd 部署远程服务器密码。
+*  svn_path 该段定义SVN的相关路径。
+	* svn_shop_dir 该段定义SVN的Shop目录。
+*  svn 该段定义Shop项目的SVN相关信息。
+	*  svn_url Shop SVN的URL。
+	*  svn_username Shop SVN的URL。
+	*  svn_password Shop VN的密码。
+* nginx 该段定义Nginx相关信息。
+	* nginx_path Nginx的webapps路径。
+* other 该段定义其他配置信息。
+	* remote_log_path 远程服务器Log路径。
+
+如有需要，请酌情修改。
+
+## 8.5 脚本使用 ##
+
+**Step 1：** 把以auto_开头的四个脚本以及config.conf配置文件放到远程服务器，脚本中的路径（YOUR_PATH）、Nginx access log（access_log）、Nginx error log（error_log）、用户名（YOUR_NAME）、密码（YOUR_IP）请酌情修改。
+
+
+**Step 2：** 添加crontab计划任务。
+
+	crontab -e
+
+crontab 任务如下。
+
+	crontab -l
+
+> 00 00 * * * bash YOUR_PATH/auto_execute_shop.sh
+> 00 01 * * * bash YOUR_PATH/auto_scp_nginx_log.sh
+> */1 * * * * ntpdate pool.ntp.org
+
+该任务定义了凌晨0点部署项目，以及凌晨1点拷贝日志。
+
+**Step 3：** 早晨上班就可以看到昨晚的部署日志了，如果有问题，把日志给开发人员，再做调试。So easy, 妈妈再也不用担心我加班了！:)
+
 Enjoy！
 
-## 9.GitHub地址 ##
+## 10.GitHub地址 ##
 
 python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
 
-## 10.项目说明 ##
+## 11.项目说明 ##
 
 auto_deploy_app_v2: 适用于Linux。<br/>
 auto_deploy_app_windows: 适用于Windows。<br/>
-auto_deploy_app_to_tomcat: 适用于Linux下部署Tomcat。
+auto_deploy_app_to_tomcat: 适用于Linux下部署到Tomcat服务器。<br/>
+auto_deploy_app_to_nginx: 适用于Linux下部署到Nginx服务器。
 
-## 11.作者信息 ##
+## 12.作者信息 ##
 
 温国兵
 
