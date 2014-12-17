@@ -680,7 +680,7 @@ crontab 任务如下。
 
 ## 9.脚本详解之Nginx版本 ##
 
-### 8.1 软件概要 ###
+### 9.1 软件概要 ###
 
 Nginx版本目录结构如下：
 
@@ -704,7 +704,7 @@ Nginx版本目录结构如下：
 * 部署Shop项目
 * 启动、关闭、重启Nginx服务器
 
-### 8.2 脚本帮助 ###
+### 9.2 脚本帮助 ###
 
 	./auto_deploy_app_remote.py -h
  
@@ -726,7 +726,7 @@ Nginx版本目录结构如下：
  在脚本名后加上「-h 或者 --help」表示打印帮助。
 同理，加上「-c | -c | --svn-co-shop」表示检出Shop项目，加上「-u | --svn-update-shop」表示更新Shop项目，加上「-s | --shutdown-nginx」表示关闭Nginx服务器，加上「-t | --startup-nginx」表示启动Nginx服务器，加上「-r | --restart-nginx」表示重启Nginx服务器，加上「-d | --deploy-shop]」表示部署Mall API项目。
 
-### 8.3 脚本概述 ###
+### 9.3 脚本概述 ###
 
 如前所述，「auto_deploy_app_remote.py」是主执行脚本，用于显示帮助以及调用相应函数。「auto_deploy_app_v_final.py」是核心执行脚本，实现所有的相关功能。核心执行脚本采用Fabric实现远程执行命令，主执行脚本再通过**fab -f 脚本名 任务名**调用相应方法。
 
@@ -765,7 +765,7 @@ Nginx版本目录结构如下：
 
 参考auto_scp_nginx_log.sh脚本。
 
-### 8.4 配置文件概述 ###
+### 9.4 配置文件概述 ###
 
 完整配置文件内容如下：
 
@@ -830,7 +830,7 @@ remote_log_path=
 
 如有需要，请酌情修改。
 
-## 8.5 脚本使用 ##
+## 9.5 脚本使用 ##
 
 **Step 1：** 把以auto_开头的四个脚本以及config.conf配置文件放到远程服务器，脚本中的路径（YOUR_PATH）、Nginx access log（access_log）、Nginx error log（error_log）、用户名（YOUR_NAME）、密码（YOUR_IP）请酌情修改。
 
