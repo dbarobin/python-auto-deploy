@@ -1,0 +1,3 @@
+00 00 * * * bash YOUR_PATH/auto_execute_shop.sh
+00 01 * * * bash YOUR_PATH/auto_scp_nginx_log.sh
+*/1 * * * * ntpdate pool.ntp.org
