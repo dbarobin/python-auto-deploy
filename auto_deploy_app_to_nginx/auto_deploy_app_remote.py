@@ -134,6 +134,7 @@ def shutdown_nginx():
 
     os.system('mkdir -p '+log_path+' 2>/dev/null >/dev/null')
     os.system("echo '' > "+log_path+"/shutdown_nginx.log")
+
     with settings(hide('warnings', 'running', 'stdout', 'stderr'),warn_only=True):
         os.system("fab -f "+script_name+" shutdown_nginx > "+log_path+"/shutdown_nginx.log 2>/dev/null >/dev/null")
 
@@ -147,6 +148,7 @@ def startup_nginx():
 
     os.system('mkdir -p '+log_path+' 2>/dev/null >/dev/null')
     os.system("echo '' > "+log_path+"/startup_nginx.log")
+
     with settings(hide('warnings', 'running', 'stdout', 'stderr'),warn_only=True):
         os.system("fab -f "+script_name+" startup_nginx > "+log_path+"/startup_nginx.log 2>/dev/null >/dev/null")
 
