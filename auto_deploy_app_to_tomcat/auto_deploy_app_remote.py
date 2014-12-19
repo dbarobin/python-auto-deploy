@@ -270,7 +270,7 @@ def deploy_admin():
 def deploy_api():
 
     print green('Deploy mall api via ant.')
-    print 'Logs output to the '+log_path+'/deploy_admin.log'
+    print 'Logs output to the '+log_path+'/deploy_api.log'
 
     os.system('mkdir -p '+log_path+' 2>/dev/null >/dev/null')
     os.system("echo '' > "+log_path+"/deploy_api.log")
