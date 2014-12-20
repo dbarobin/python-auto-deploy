@@ -1,4 +1,4 @@
-# Python自动化打包业务和认证平台 V2.2-Release #
+# Python自动化打包业务和认证平台 V2.3-Release #
 
 ## 1.文档摘要 ##
 
@@ -17,6 +17,9 @@
 
 2014-12-17
 > 文档版本为「2.2」，文档名为「Python自动化打包业务和认证平台 V2.2-Release」，备注为「添加部署到Nginx服务器脚本」，By Robin。
+
+2014-12-19
+> 文档版本为「2.3」，文档名为「Python自动化打包业务和认证平台 V2.3-Release」，备注为「添加部署到Tomcat服务器脚本」，By Robin。
 
 ## 3.版本信息 ##
 
@@ -463,6 +466,8 @@ Tomcat版本目录结构如下：
 > ├── auto_deploy_app_remote.py <br/>
 > ├── auto_deploy_app_v_final.py <br/>
 > ├── auto_execute_mall.sh <br/>
+> ├── auto_execute_mall_admin.sh <br/>
+> ├── auto_execute_mall_api.sh <br/>
 > ├── auto_scp_tomcat_log.sh <br/>
 > ├── build.xml <br/>
 > ├── config.conf <br/>
@@ -471,7 +476,7 @@ Tomcat版本目录结构如下：
 > ├── remote_shutdown.sh <br/>
 > └── remote_startup.sh <br/>
 > 
-> 0 directories, 10 files
+> 0 directories, 12 files
 
 该脚本实现的功能如下：
 
@@ -552,6 +557,14 @@ Tomcat版本目录结构如下：
 `auto_execute_mall.sh`脚本实现了自动从SVN检出项目，自动部署到Tomcat。
 
 参考auto_execute_mall.sh脚本。
+
+`auto_execute_mall_admin.sh`脚本实现了自动从SVN检出Admin项目，自动部署到Tomcat。
+
+参考auto_execute_mall_admin.sh脚本。
+
+`auto_execute_mall_api.sh`脚本实现了自动从SVN检出API项目，自动部署到Tomcat。
+
+参考auto_execute_mall_api.sh脚本。
 
 `auto_scp_tomcat_log.sh`脚本实现了从Tomcat服务器自动拉取日志。为了更好的查看日志，拉取了近三天（昨天、今天和明天）的日志。
 
