@@ -92,7 +92,7 @@ Web服务器 XXX：
 
 ## 5.软件综述 ##
 
-本软件包括四个目录，其中auto_deploy_app_v2为Linux版本。auto_deploy_app_windows为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。auto_deploy_app_to_tomcat为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。auto_deploy_app_to_nginx为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。auto_gen_testing_reports为自动测试脚本，其中包括四个Python脚本，一个配置我就。
+本软件包括四个目录，其中auto_deploy_app_v2为Linux版本。auto_deploy_app_windows为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。auto_deploy_app_to_tomcat为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。auto_deploy_app_to_nginx为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。auto_gen_testing_reports为自动测试脚本，其中包括四个Python脚本、一个crontab配置文件，一个Python脚本配置文件，一个Shell脚本。
 
 ## 6.脚本详解之Linux版本 ##
 
@@ -158,7 +158,7 @@ Auto deploy application to the remote web server. Write in Python.
 
 主执行脚本和核心执行脚本的方法名基本一致，主执行脚本包括如下方法：main(argv)、usage()、svn_co()、svn_update()、shutdown_core()、startup_core()、restart_core()、shutdown_auth()、startup_auth()、restart_auth()、deploy_core_platform()、deploy_auth_plaform()、deploy_prepare()和updata_database_setting()。
 
-核心执行脚本包括如下方法：main(argv)、usage()、svn_co()、svn_update()、shutdown_core()、startup_core()、restart_core()、shutdown_auth()、startup_auth()、restart_auth()、deploy_core_platform()、deploy_auth_platform()、deploy_prepare()、updata_database_setting()和getConfig()。
+核心执行脚本包括如下方法：svn_co()、svn_update()、shutdown_core()、startup_core()、restart_core()、shutdown_auth()、startup_auth()、restart_auth()、deploy_core_platform()、deploy_auth_platform()、deploy_prepare()、updata_database_setting()和getConfig()。
 
 **主执行脚本：**
 
@@ -526,7 +526,7 @@ Tomcat版本目录结构如下：
 
 主执行脚本和核心执行脚本的方法名基本一致，主执行脚本包括如下方法：main(argv)、usage()、svn_co_admin()、svn_co_api()、svn_update_admin()、svn_update_api()、shutdown_admin()、startup_admin()、restart_admin()、shutdown_api()、startup_api()、restart_api()、deploy_admin()和deploy_api()。
 
-核心执行脚本包括如下方法：main(argv)、usage()、svn_co_admin()、svn_co_api()、svn_update_admin()、svn_update_api()、shutdown_admin()、startup_admin()、restart_admin()、shutdown_api()、startup_api()、restart_api()、deploy_admin()、deploy_api()和getConfig()。
+核心执行脚本包括如下方法：svn_co_admin()、svn_co_api()、svn_update_admin()、svn_update_api()、shutdown_admin()、startup_admin()、restart_admin()、shutdown_api()、startup_api()、restart_api()、deploy_admin()、deploy_api()和getConfig()。
 
 **主执行脚本：**
 
@@ -739,8 +739,8 @@ Nginx版本目录结构如下：
 
  ``` 
 
- 在脚本名后加上「-h 或者 --help」表示打印帮助。
-同理，加上「-c | -c | --svn-co-shop」表示检出Shop项目，加上「-u | --svn-update-shop」表示更新Shop项目，加上「-s | --shutdown-nginx」表示关闭Nginx服务器，加上「-t | --startup-nginx」表示启动Nginx服务器，加上「-r | --restart-nginx」表示重启Nginx服务器，加上「-d | --deploy-shop]」表示部署Mall API项目。
+在脚本名后加上「-h 或者 --help」表示打印帮助。
+同理，加上「 -c | --svn-co-shop」表示检出Shop项目，加上「-u | --svn-update-shop」表示更新Shop项目，加上「-s | --shutdown-nginx」表示关闭Nginx服务器，加上「-t | --startup-nginx」表示启动Nginx服务器，加上「-r | --restart-nginx」表示重启Nginx服务器，加上「-d | --deploy-shop]」表示部署Mall API项目。
 
 ### 9.3 脚本概述 ###
 
@@ -748,7 +748,7 @@ Nginx版本目录结构如下：
 
 主执行脚本和核心执行脚本的方法名基本一致，主执行脚本包括如下方法：main(argv)、usage()、svn_co_shop()、svn_update_shop()、shutdown_nginx()、startup_nginx()、restart_nginx()和deploy_shop()。
 
-核心执行脚本包括如下方法：main(argv)、usage()、svn_co_shop()、svn_update_shop()、shutdown_nginx()、startup_nginx()、restart_nginx()、deploy_shop()和getConfig()。
+核心执行脚本包括如下方法：svn_co_shop()、svn_update_shop()、shutdown_nginx()、startup_nginx()、restart_nginx()、deploy_shop()和getConfig()。
 
 **主执行脚本：**
 
@@ -867,20 +867,199 @@ crontab 任务如下。
 
 **Step 3：** 早晨上班就可以看到昨晚的部署日志了，如果有问题，把日志给开发人员，再做调试。So easy, 妈妈再也不用担心我加班了！:)
 
+## 10.脚本详解之自动化生成测试报告 ##
+
+### 10.1 软件概要 ###
+
+自动化生成测试报告目录结构如下：
+
+	tree auto_gen_testing_reports
+
+> auto_gen_testing_reports <br/>
+> ├── auto_deploy_app_remote.py <br/>
+> ├── auto_deploy_app_v_final.py <br/>
+> ├── auto_gen_testing_reports.sh <br/>
+> ├── config.conf <br/>
+> ├── crontab <br/>
+> ├── get_git_version.py <br/>
+> └── test_result.py <br/>
+> 
+> 0 directories, 7 files
+
+该脚本实现的功能如下：
+
+* 打印帮助
+* 克隆Git项目
+* 拉取Git项目
+* 配置生成报告
+* 自动生成测试报告
+* 拷贝生成报告
+
+### 10.2 脚本帮助 ###
+
+	./auto_deploy_app_remote.py -h
+ 
+ ``` bash
+ Auto generate testing reports. Write in Python.
+ Version 1.0. By Robin Wen. Email:dbarobinwen@gmail.com
+ 
+ Usage auto_deploy_app.py [-hpas]
+   [-h | --help] Prints this help and usage message
+   [-c | --git-clone] Clone the repo via git
+   [-u | --git-pull] Update the repo via git
+   [-p | --pre-conf] Pre config before generate testing reports
+   [-a | --auto-gen] Auto generate testing reports
+   [-s | --scp-report] SCP generated testing reports
+
+ ``` 
+
+在脚本名后加上「-h 或者 --help」表示打印帮助。
+同理，加上「-c  | --git-clone」表示克隆Git项目，加上「-u | --git-pull」表示获取Git项目，加上「-p | -pre-conf」表示测试前准备，加上「-a | --auto-gen」表示自动化生成测试报告，加上「-s | --scp-report」表示拷贝生成的测试报告。
+
+### 10.3 脚本概述 ###
+
+如前所述，「auto_deploy_app_remote.py」是主执行脚本，用于显示帮助以及调用相应函数。「auto_deploy_app_v_final.py」是核心执行脚本，实现所有的相关功能。核心执行脚本采用Fabric实现远程执行命令，主执行脚本再通过**fab -f 脚本名 任务名**调用相应方法。
+
+主执行脚本和核心执行脚本的方法名基本一致，主执行脚本包括如下方法：main(argv)、usage()、git_clone()、git_pull()、pre_conf()、auto_gen()和scp_report()。
+
+核心执行脚本包括如下方法：git_clone()、git_pull()、pre_conf()、auto_gen()、scp_report()和getConfig()。
+
+**主执行脚本：**
+
+* main(argv) 主函数
+* usage() 使用说明函数
+* git_clone() 克隆项目函数
+* git_pull() 拉取项目函数
+* pre_conf() 执行自动化生成测试报告之前的准备工作
+* auto_gen() 自动化生成测试报告
+* scp_report() 拷贝生成的测试报告
+
+**主执行脚本**
+
+主执行脚本内容如下：
+参考脚本auto_deploy_app_remote.py。
+
+**核心执行脚本**
+
+方法和主执行脚本基本一致，相同的不赘述。核心执行脚本还提供getConfig()方法，用于读取配置文件。
+
+核心执行脚本内容如下：
+参考脚本auto_deploy_app_v_final.py。
+
+`auto_gen_testing_reports.sh`脚本实现了自动生成测试报告，并且拷贝生成的测试报告。
+
+参考auto_gen_testing_reports.sh脚本。
+
+### 10.4 配置文件概述 ###
+
+完整配置文件内容如下：
+
+```bash
+# Remote server section.
+[remote]
+# Remote server ip.
+remote_ip=
+# Remote server port.
+remote_port=
+# Remote server username.
+remote_usr=
+# Remote server password.
+remote_pwd=
+
+# Jmeter section.
+[jmeter]
+# Jmeter home directory.
+jmeter_home=
+
+# Ant section.
+[ant]
+# Ant home directory.
+ant_home=
+
+# Scripts section.
+[script]
+# Mall scripts home dir.
+script_dir=
+# Jmeter mall scripts section.
+mall_script=
+
+# Report section.
+[report]
+# Report directory.
+report_dir=
+# Report export directory.
+report_exp_dir=
+
+# Git section.
+[git]
+# Git Url.
+git_url=
+# Git repo diectory.
+git_repo=
+```
+
+接下来，我逐一进行讲解。
+
+配置文件包括以下段：remote、jmeter、ant、script、report和git。
+
+每个段的说明如下：
+
+* remote 该段定义远程服务器登录信息。
+	* remote_ip 部署远程服务器IP。
+	* remote_port 部署远程服务器端口。
+	* remote_usr 部署远程服务器用户名。
+	* remote_pwd 部署远程服务器密码。
+*  jmeter 该段定义Jmeter的相关路径。
+	* jmeter_home Jmeter主目录。
+*  ant 该段定义Ant的相关信息。
+	*  ant_home Ant的主目录。
+* script 该段定义脚本相关信息。
+	* script_dir 脚本的主目录。
+	* mall_script 自动化测试报告的脚本路径。
+* report 该段定义测试报告的相关信息。
+	* report_dir 存放Jmeter脚本的服务器的测试报告目录。
+	* report_exp_dir 导出到远程服务器的测试报告目录。
+* git 该段定义Git的相关信息。
+	* git_url Git的URL。
+	* git_repo 克隆的Git项目目录。
+
+如有需要，请酌情修改。
+
+## 10.5 脚本使用 ##
+
+**Step 1：** 把以auto_开头的三个脚本以及config.conf配置文件放到远程服务器，脚本中的路径（YOUR_PATH）请酌情修改。
+
+**Step 2：** 把`get_git_version.py`放到存放Jmeter脚本的服务器，路径请酌情存放。
+
+**Step 3：** 添加crontab计划任务。
+
+	crontab -e
+
+crontab 任务如下。
+
+	crontab -l
+
+> 10 00 * * * bash YOUR_PATH/auto_gen_testing_reports.sh 
+> */1 * * * * ntpdate pool.ntp.org
+
+该任务定义了凌晨0点10分自动化生成测试报告。
+
+**Step 4：** 早晨上班就可以看到昨晚生成的测试报告了，如果有问题，把日志给开发人员，再做调试。So easy, 妈妈再也不用担心我加班了！:)
+
 Enjoy！
 
-## 10.GitHub地址 ##
+## 11.GitHub地址 ##
 
 python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
 
-## 11.项目说明 ##
+## 12.项目说明 ##
 
 auto_deploy_app_v2: 适用于Linux。<br/>
 auto_deploy_app_windows: 适用于Windows。<br/>
 auto_deploy_app_to_tomcat: 适用于Linux下部署到Tomcat服务器。<br/>
 auto_deploy_app_to_nginx: 适用于Linux下部署到Nginx服务器。
 
-## 12.作者信息 ##
+## 13.作者信息 ##
 
 温国兵
 
