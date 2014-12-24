@@ -92,7 +92,7 @@ Web服务器 XXX：
 
 ## 5.软件综述 ##
 
-本软件包括四个目录，其中`auto_deploy_app_v2`为Linux版本。`auto_deploy_app_windows`为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。`auto_deploy_app_to_tomcat`为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。`auto_deploy_app_to_nginx`为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。`auto_gen_testing_reports`为自动测试脚本，其中包括四个Python脚本、一个crontab配置文件，一个Python脚本配置文件，一个Shell脚本。
+本软件包括四个目录，其中`auto_deploy_app_v2`为Linux版本。`auto_deploy_app_windows`为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。`auto_deploy_app_to_tomcat`为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。`auto_deploy_app_to_nginx`为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。`auto_gen_testing_reports`为自动测试脚本，其中包括四个Python脚本、一个crontab配置文件，一个Python脚本配置文件，一个Shell脚本，一个ant的配置文件。
 
 ## 6.脚本详解之Linux版本 ##
 
@@ -871,6 +871,8 @@ crontab 任务如下。
 
 ### 10.1 软件概要 ###
 
+该软件实现了自动化生成测试报告。首先测试人员生成测试脚本（亦即jmx文件），然后使用Python脚本和Shell脚本，实现自动化生成测试报告。生成测试报告使用了ant和jmeter。
+
 自动化生成测试报告目录结构如下：
 
 	tree auto_gen_testing_reports
@@ -879,12 +881,13 @@ crontab 任务如下。
 > ├── auto_deploy_app_remote.py <br/>
 > ├── auto_deploy_app_v_final.py <br/>
 > ├── auto_gen_testing_reports.sh <br/>
+> ├── build.xml <br/>
 > ├── config.conf <br/>
 > ├── crontab <br/>
 > ├── get_git_version.py <br/>
 > └── test_result.py <br/>
 > 
-> 0 directories, 7 files
+> 0 directories, 8 files
 
 该脚本实现的功能如下：
 
@@ -949,6 +952,8 @@ crontab 任务如下。
 `auto_gen_testing_reports.sh`脚本实现了自动生成测试报告，并且拷贝生成的测试报告。
 
 参考auto_gen_testing_reports.sh脚本。
+
+`build.xml`为ant的配置文件。
 
 ### 10.4 配置文件概述 ###
 
@@ -1029,9 +1034,11 @@ git_repo=
 
 **Step 1：** 把以auto_开头的三个脚本以及config.conf配置文件放到远程服务器，脚本中的路径（YOUR_PATH）请酌情修改。
 
-**Step 2：** 把`get_git_version.py`放到存放Jmeter脚本的服务器，路径请酌情存放。
+**Step 2：** 把`get_git_version.py`放到存放Jmeter脚本的服务器，请酌情存放。
 
-**Step 3：** 添加crontab计划任务。
+**Step 3：** 把`build.xml`放到存放Jmeter脚本的服务器，其中JMeter.home、testing.testplans.home、testing.report.home参数对应的路径请酌情修改。
+
+**Step 4：** 远程服务器添加crontab计划任务。
 
 	crontab -e
 
@@ -1044,7 +1051,7 @@ crontab 任务如下。
 
 该任务定义了凌晨0点10分自动化生成测试报告。
 
-**Step 4：** 早晨上班就可以看到昨晚生成的测试报告了，如果有问题，把日志给开发人员，再做调试。So easy, 妈妈再也不用担心我加班了！:)
+**Step 5：** 早晨上班就可以看到昨晚生成的测试报告了，如果有问题，把日志给开发人员，再做调试。So easy, 妈妈再也不用担心我加班了！:)
 
 Enjoy！
 

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project name="ant-jmeter">
+    <!-- Should report include response data for failures? -->
+    <property name="show-data" value="n"/>
+    <property name="format" value="2.1"/>
+	<property name="JMeter.home" value="YOUR_PATH" />
+	<property name="testing.testplans.home" value="YOUR_PATH" />
+	<property name="testing.report.home" value="YOUR_PATH" />
+	<tstamp>
+		<format property="time" pattern="yyyyMMddHHmm"/>
+	</tstamp>
+
+    <path id="jmeter.classpath">
+        <fileset dir="${JMeter.home}\extras">
+        	<include name="ant-jmeter-1.1.1.jar"/>
+        </fileset>
+    </path>
+	<path id="xslt.classpath">
+	    <fileset dir="${JMeter.home}\lib" includes="xalan*.jar"/>
+	    <fileset dir="${JMeter.home}\lib" includes="serializer*.jar"/>
+	</path>
+	<path id="mysql.jdbc.classpath">
+	    <fileset dir="${JMeter.home}\lib" includes="mysql*.jar"/>
+	</path>
+    <target name="run-testing">
+    	<taskdef name="jmeter" classpathref="jmeter.classpath"
+			classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+        <jmeter jmeterhome="${JMeter.home}"
+            resultlog="${testing.report.home}\QA_REPORT_${time}.jtl">
+
+    	    <testplans dir="${testing.testplans.home}" includes="*.jmx"/>
+        </jmeter>
+    </target>
+
+	<target name="gen-testing-report" depends="run-testing">
+    	<xslt in="${testing.report.home}\QA_REPORT_${time}.jtl"
+    		out="${testing.report.home}\QA_REPORT_${time}.html"
+    		style="${JMeter.home}\extras\jmeter-results-detail-report_21.xsl">
+    	</xslt>
+    </target>
+
+</project>
+
