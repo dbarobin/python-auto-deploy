@@ -1057,7 +1057,8 @@ python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
 auto_deploy_app_v2: 适用于Linux。<br/>
 auto_deploy_app_windows: 适用于Windows。<br/>
 auto_deploy_app_to_tomcat: 适用于Linux下部署到Tomcat服务器。<br/>
-auto_deploy_app_to_nginx: 适用于Linux下部署到Nginx服务器。
+auto_deploy_app_to_nginx: 适用于Linux下部署到Nginx服务器。<br/> 
+auto_gen_testing_reports：适用于Linux下自动化生成测试报告。
 
 ## 13.作者信息 ##
 
