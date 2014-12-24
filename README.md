@@ -1,4 +1,4 @@
-# Python自动化打包业务和认证平台 V2.3-Release #
+# Python自动化打包业务和认证平台 V2.4-Release #
 
 ## 1.文档摘要 ##
 
@@ -20,6 +20,9 @@
 
 2014-12-19
 > 文档版本为「2.3」，文档名为「Python自动化打包业务和认证平台 V2.3-Release」，备注为「添加部署到Tomcat服务器脚本」，By Robin。
+
+2014-12-24
+> 文档版本为「2.4」，文档名为「Python自动化打包业务和认证平台 V2.4-Release」，备注为「添加自动化生成测试报告脚本」，By Robin。
 
 ## 3.版本信息 ##
 
@@ -89,7 +92,7 @@ Web服务器 XXX：
 
 ## 5.软件综述 ##
 
-本软件包括四个目录，其中auto_deploy_app_v2为Linux版本。auto_deploy_app_windows为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。auto_deploy_app_to_tomcat为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。auto_deploy_app_to_nginx为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。
+本软件包括四个目录，其中auto_deploy_app_v2为Linux版本。auto_deploy_app_windows为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。auto_deploy_app_to_tomcat为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。auto_deploy_app_to_nginx为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。auto_gen_testing_reports为自动测试脚本，其中包括四个Python脚本，一个配置我就。
 
 ## 6.脚本详解之Linux版本 ##
 

@@ -1,0 +1,2 @@
+10 00 * * * bash YOUR_PATH/auto_gen_testing_reports.sh 
+*/1 * * * * ntpdate pool.ntp.org
