@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Author: Robin Wen
+# Date: 18:15:25 2014-12-24
+# Desc: Get repo version.
+# FileName: get_git_version.py
 
 import subprocess, os
 
