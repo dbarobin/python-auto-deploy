@@ -159,7 +159,7 @@ def deploy_shop():
     print green('Deploy shop to nginx server.')
 
     run('sudo rm -rfv '+nginx_path+'/*')
-    run('mv '+svn_shop_dir+'/trunk/e1shop/* '+nginx_path+'')
+    run('cp -rv '+svn_shop_dir+'/trunk/e1shop/* '+nginx_path+'')
     run('sudo chmod 777 -R '+nginx_path+'')
 
     print green('Congratulations! Deploy shop finished!')
