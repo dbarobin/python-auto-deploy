@@ -52,3 +52,4 @@ echo "Update the Database Setting of Test Mall Project Finished!"
 ssh YOUR_SERVER_USER_NAME@YOUR_SERVER_IP "ps -ef | grep tomcat-test | grep -v grep | cut -c 9-15 | xargs kill -9"
 
 # Restart Test Tomcat Remotely.
+ssh YOUR_SERVER_USER_NAME@YOUR_SERVER_IP "bash $test_tomcat/bin/remote_startup.sh"
