@@ -13,16 +13,19 @@
 > 文档版本为「2.0」，文档名为「Python 自动化部署 V2.0-Release」，备注为「文档正式版第二版，修复若干Bug」，By Robin。
 
 2014-12-12
-> 文档版本为「2.1」，文档名为「Python 自动化部署 V2.1-Release」，备注为「添加部署Tomcat脚本」，By Robin。
+> 文档版本为「2.1」，文档名为「Python 自动化部署 V2.1-Release」，备注为「添加部署 Tomcat 脚本」，By Robin。
 
 2014-12-17
-> 文档版本为「2.2」，文档名为「Python 自动化部署 V2.2-Release」，备注为「添加部署到Nginx服务器脚本」，By Robin。
+> 文档版本为「2.2」，文档名为「Python 自动化部署 V2.2-Release」，备注为「添加部署到 Nginx 服务器脚本」，By Robin。
 
 2014-12-19
-> 文档版本为「2.3」，文档名为「Python 自动化部署 V2.3-Release」，备注为「添加部署到Tomcat服务器脚本」，By Robin。
+> 文档版本为「2.3」，文档名为「Python 自动化部署 V2.3-Release」，备注为「添加部署到 Tomcat 服务器脚本」，By Robin。
 
 2014-12-24
 > 文档版本为「2.4」，文档名为「Python 自动化部署 V2.4-Release」，备注为「添加自动化生成测试报告脚本」，By Robin。
+
+2015-01-31
+> 文档版本为「2.5」，文档名为「Python 自动化部署 V2.5-Release」，备注为「添加 All in One 部署 Java 项目脚本」，By Robin。
 
 ## 3.版本信息 ##
 
@@ -1079,4 +1082,3 @@ auto_gen_testing_reports：适用于Linux下自动化生成测试报告。
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dbarobin/python-auto-deploy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
