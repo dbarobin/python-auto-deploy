@@ -95,7 +95,7 @@ Web服务器 XXX：
 
 ## 5.软件综述 ##
 
-本软件包括六个目录，其中`auto_deploy_app_v2`为Linux版本。`auto_deploy_app_windows`为Windows版本。Linux版本包括两个Python脚本以及一个配置文件。Windows版本包括两个Python脚本以及两个配置文件。`auto_deploy_app_to_tomcat`为部署到Tomcat脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个ant build.xml、一个crontab配置文件、五个Shell脚本。`auto_deploy_app_to_nginx`为部署到Nginx脚本，其中包括两个Python脚本、一个Python脚本配置文件、一个crontab配置文件、两个Shell脚本。`auto_gen_testing_reports`为自动测试脚本，其中包括四个Python脚本、一个crontab配置文件，一个Python脚本配置文件，一个Shell脚本，一个ant的配置文件。`auto_deploy_app_all_in_one`为 All in One 脚本，集合以上脚本，并提供一个统一的入口。
+参考 Wiki：[Python Auto Deploy 概述](http://git.io/bwSy)
 
 ## 6.脚本详解之Linux版本 ##
 
