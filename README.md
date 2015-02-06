@@ -125,11 +125,12 @@ python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
 
 ## 12.项目说明 ##
 
-auto_deploy_app_v2: 适用于Linux。<br/>
-auto_deploy_app_windows: 适用于Windows。<br/>
-auto_deploy_app_to_tomcat: 适用于Linux下部署到Tomcat服务器。<br/>
-auto_deploy_app_to_nginx: 适用于Linux下部署到Nginx服务器。<br/> 
-auto_gen_testing_reports：适用于Linux下自动化生成测试报告。
+* auto_deploy_app_v2: 适用于 Linux。
+* auto_deploy_app_windows: 适用于 Windows。
+* auto_deploy_app_to_tomcat: 适用于 Linux 下部署 Java 项目到 Tomcat 服务器。
+* auto_deploy_app_to_nginx: 适用于 Linux 下部署 PHP 项目到 Nginx 服务器。
+* auto_gen_testing_reports：适用于 Linux 下自动化生成测试报告。
+* auto_deploy_app_all_in_one：适用于 Linux 下部署 Java 项目到 Tomcat 服务器。
 
 ## 13.作者信息 ##
 
