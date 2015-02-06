@@ -125,7 +125,7 @@ Enjoy！
 
 ## 12.GitHub地址 ##
 
-python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
+[python-auto-deploy](http://git.io/F85N)
 
 ## 13.项目说明 ##
 
