@@ -103,49 +103,7 @@ Web服务器 XXX：
 
 ## 7.脚本详解之Windows版本 ##
 
-### 7.1 软件概要 ###
-
-Windows版本目录结构如下：
-
-	tree auto_deploy_app_windows
-
-> auto_deploy_app_windows <br/>
-> |-- auto_deploy_app_remote.py <br/>
-> |-- auto_deploy_app_v_final.py <br/>
-> `-- config.conf <br/>
-> `-- logging.conf <br/>
-> <br/>
-> 0 directories, 4 files
-
-其中，「auto_deploy_app_remote.py」是主执行脚本，用于显示帮助以及调用相应函数。「auto_deploy_app_v_final.py」是核心执行脚本，实现所有的相关功能。「config.conf」是脚本的配置文件。「logging.conf」是日志配置文件。
-
-该脚本实现的功能如下：
-
-* 打印帮助
-* 部署准备
-* 检出项目
-* 更新项目
-* 部署业务平台
-* 部署认证平台
-* 启动、关闭、重启业务平台
-* 启动、关闭、重启认证平台
-* 修改数据库配置
-
-### 7.2 脚本帮助 ###
-
-参考6.2 节。
-
-### 7.3 脚本概述 ###
-
-参考6.3 节。
-
-### 7.4 配置文件概述 ###
-
-参考6.4 节。
-
-## 7.5 脚本使用 ##
-
-参考6.5 节。
+参考 Wiki：[部署 Java 项目到 Tomcat(Core Platform, Windows 版本)](http://git.io/bw7q)
 
 ## 8.脚本详解之Tomcat版本 ##
 
