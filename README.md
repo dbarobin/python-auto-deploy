@@ -29,34 +29,7 @@
 
 ## 3.版本信息 ##
 
-本机 XXX：
-
-> 系统版本：<br/>
-> 主机名：XXX <br/>
-> IP：xxx.xxx.xxx.xxx <br/>
-> Python：2.6.6
-
-远程服务器 XXX：
-
-> 系统版本：XXX <br/>
-> 主机名：XXX <br/>
-> IP：xxx.xxx.xxx.xxx <br/>
-> Python：2.7.3 <br/>
-> JDK：1.8.25 <br/>
-> Maven：3.2.3 <br/>
-> SVN：1.6.17
-
-Tomcat服务器 XXX：
-
-> 系统版本：XXX <br/>
-> 主机名：XXX <br/>
-> IP：xxx.xxx.xxx.xxx
-
-Web服务器 XXX：
-
-> 系统版本：XXX <br/>
-> 主机名：XXX <br/>
-> IP：xxx.xxx.xxx.xxx
+参考 Wiki：[版本信息](http://git.io/bwA9)
 
 ## 4.先决条件 ##
 
