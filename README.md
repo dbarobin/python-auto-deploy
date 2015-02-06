@@ -117,13 +117,17 @@ Web服务器 XXX：
 
 参考 Wiki：[自动生成测试报告](http://git.io/bwd5)
 
+## 11.All in One 脚本 ##
+
+参考 Wiki：[All in One 脚本](http://git.io/bwNw)
+
 Enjoy！
 
-## 11.GitHub地址 ##
+## 12.GitHub地址 ##
 
 python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
 
-## 12.项目说明 ##
+## 13.项目说明 ##
 
 * auto_deploy_app_v2: 适用于 Linux。
 * auto_deploy_app_windows: 适用于 Windows。
@@ -132,7 +136,7 @@ python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
 * auto_gen_testing_reports：适用于 Linux 下自动化生成测试报告。
 * auto_deploy_app_all_in_one：适用于 Linux 下部署 Java 项目到 Tomcat 服务器。
 
-## 13.作者信息 ##
+## 14.作者信息 ##
 
 温国兵
 
@@ -141,6 +145,5 @@ python-auto-deploy：https://github.com/dbarobin/python-auto-deploy
 * <a href="https://github.com/dbarobin" target="_blank"><img src="https://farm9.staticflickr.com/8653/15815300288_69bb6bb56d_o_d.png" title="Github" border="0" alt="Github" height="16px" width="16px" /></a>
 * <a href="http://dbarobin.com" target="_blank"><img src="http://i.imgur.com/dEfMkyt.jpg" title="Robin's Blog" border="0" alt="Robin's Blog" height="16px" width="16px" /></a>
 * <a href="http://blog.csdn.net/justdb" target="_blank"><img src="http://i.imgur.com/BROigUO.jpg" title="DBA@Robin's CSDN" height="16px" width="16px" border="0" alt="DBA@Robin's CSDN" /></a>
-
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dbarobin/python-auto-deploy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
