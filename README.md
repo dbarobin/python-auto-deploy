@@ -10,7 +10,7 @@
 > 文档版本为「1.0」，文档名为「Python 自动化部署 V1.0」，备注为「文档正式版，已测试通过」，By Robin。
 
 2014-12-04
-> 文档版本为「2.0」，文档名为「Python 自动化部署 V2.0-Release」，备注为「文档正式版第二版，修复若干Bug」，By Robin。
+> 文档版本为「2.0」，文档名为「Python 自动化部署 V2.0-Release」，备注为「文档正式版第二版，修复若干 Bug」，By Robin。
 
 2014-12-12
 > 文档版本为「2.1」，文档名为「Python 自动化部署 V2.1-Release」，备注为「添加部署 Tomcat 脚本」，By Robin。
@@ -26,6 +26,9 @@
 
 2015-01-31
 > 文档版本为「2.5」，文档名为「Python 自动化部署 V2.5-Release」，备注为「添加 All in One 部署 Java 项目脚本」，By Robin。
+
+2015-02-06
+> 文档版本为「2.6」，文档名为「Python 自动化部署 V2.6-Release」，备注为「新增 Wiki 页，并同步对应 URL 到 Wiki」，By Robin。
 
 ## 3.版本信息 ##
 
