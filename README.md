@@ -33,38 +33,7 @@
 
 ## 4.先决条件 ##
 
-**本机安装软件：**
-
-> Python 2.7.5
-
-安装包如下：
-
-> apt-get: python python-pip python-dev subversion subversion-tools <br/>
-> yum: python python-pip python-devel subversion <br/>
-> pip: fabric
-
-**远程服务器安装软件：**
-
-> JDK：JDK 1.6.45 1.7.71 1.8.25 方便不同版本切换<br/>
-> Maven：3.2.3 <br/>
-> SVN：1.6.17
-
-安装包如下：
-
-> dos2unix subversion subversion-tools
-
-**Tomcat服务器安装软件：**
-
-> JDK：JDK 1.6.45 1.7.71 1.8.25 方便不同版本切换<br/>
-> Tomcat：6.0.45 <br/>
-> SVN：1.6.17 <br/>
-> ant：1.9.4 用于打包 <br/>
-> Jmeter：2.12 用于后期做自动化测试扩展
-
-**Web服务器安装软件：**
-
-> Nginx：1.6.2 <br/>
-> SVN：1.6.17
+参考 Wiki：[先决条件](http://git.io/bwxB)
 
 ## 5.软件综述 ##
 
