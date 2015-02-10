@@ -74,11 +74,11 @@ Enjoy！
 
 ## 13.项目说明 ##
 
-* auto_deploy_app_v2: 适用于 Linux(Deibian)。
-* auto_deploy_app_windows: 适用于 Windows 7。
-* auto_deploy_app_to_tomcat: 适用于 Linux(Deibian) 下部署 Java 项目到 Tomcat 服务器。
-* auto_deploy_app_to_nginx: 适用于 Linux(Deibian) 下部署 PHP 项目到 Nginx 服务器。
-* auto_gen_testing_reports：适用于 Linux(Deibian) 下自动化生成测试报告。
+* auto_deploy_app_v2: 适用于 Linux(Deibian)；
+* auto_deploy_app_windows: 适用于 Windows 7；
+* auto_deploy_app_to_tomcat: 适用于 Linux(Deibian) 下部署 Java 项目到 Tomcat 服务器；
+* auto_deploy_app_to_nginx: 适用于 Linux(Deibian) 下部署 PHP 项目到 Nginx 服务器；
+* auto_gen_testing_reports：适用于 Linux(Deibian) 下自动化生成测试报告；
 * auto_deploy_app_all_in_one：适用于 Linux(Deibian) 下部署 Java 项目到 Tomcat 服务器。
 
 ## 14.作者信息 ##
