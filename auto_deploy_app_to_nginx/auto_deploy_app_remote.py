@@ -89,7 +89,7 @@ Prints out the usage for the command line.
 # Usage funtion.
 def usage():
     usage = [" Auto deploy application to the remote web server. Write in Python.\n"]
-    usage.append("Version 1.0. By Robin Wen. Email:dbarobinwen@gmail.com\n")
+    usage.append("Version 1.0. By Robin Wen. Email:blockxyz@gmail.com\n")
     usage.append("\n")
     usage.append("Usage auto_deploy_app.py [-hcustrd]\n")
     usage.append("  [-h | --help] Prints this help and usage message\n")
