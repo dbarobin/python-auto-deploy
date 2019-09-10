@@ -83,12 +83,9 @@ Enjoy！
 
 ## 14.作者信息 ##
 
-温国兵
-
 * Robin Wen
 * <a href="mailto:blockxyz@gmail.com"><img src="http://i.imgur.com/7yOaC7C.png" title="Robin's Gmail" border="0" height="16px" width="16px" alt="Robin's Gmail" /></a>
 * <a href="https://github.com/dbarobin" target="_blank"><img src="http://i.imgur.com/DwejLO9.png" title="Github" border="0" alt="Github" height="16px" width="16px" /></a>
 * <a href="http://dbarobin.com" target="_blank"><img src="http://i.imgur.com/dEfMkyt.jpg" title="Robin's Blog" border="0" alt="Robin's Blog" height="16px" width="16px" /></a>
-* <a href="http://blog.csdn.net/justdb" target="_blank"><img src="http://i.imgur.com/BROigUO.jpg" title="DBA@Robin's CSDN" height="16px" width="16px" border="0" alt="DBA@Robin's CSDN" /></a>
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dbarobin/python-auto-deploy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
